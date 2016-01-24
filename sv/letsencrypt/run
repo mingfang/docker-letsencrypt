@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#sv start socklog-unix || exit 1
+
+source /etc/envvars
+env
+
+exec 2>&1
+sleep 30; #Give time to register with Knginx
+while true; do
+  /letsencrypt/letsencrypt-auto certonly -a webroot --agree-tos --renew-by-default --webroot-path=/usr/share/nginx/html -d ${DOMAINS} -m ${EMAIL}
+  sleep 604800; #Every 7 days 
+done
