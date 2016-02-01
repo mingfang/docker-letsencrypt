@@ -15,7 +15,7 @@ RUN echo 'export > /etc/envvars' >> /root/.bashrc
 RUN apt-get install -y vim less net-tools inetutils-ping wget curl git telnet nmap socat dnsutils netcat tree htop unzip sudo software-properties-common jq psmisc
 
 RUN apt-get install -y nginx
-RUN wget -O - https://github.com/letsencrypt/letsencrypt/archive/v0.2.0.tar.gz | tar xz
+RUN wget -O - https://github.com/letsencrypt/letsencrypt/archive/v0.3.0.tar.gz | tar xz
 RUN mv letsencrypt* letsencrypt
 RUN /letsencrypt/letsencrypt-auto --help
 
